@@ -1,0 +1,50 @@
+header {
+    width: 100%;
+    height: 70px;
+}
+
+#intro {
+    margin-top: 70px;
+    min-height: 100vh;
+}
+
+#About {
+    background-color: #ccc;
+    min-height: 100vh;
+}
+
+#cursor {
+    margin: 0;
+    display: inline-block;
+  
+  }
+
+  #intro .social-buttons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 1.5s ease;
+  }
+
+  #tools img {
+    width:48px;
+    height:48px;
+  }
+
+  .bg-gray-50 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+    margin: 1rem;
+    height: 60px;
+}
+
+
+  /* hover */
+
+  @media (hover:hover) {
+    
+    #intro .social-buttons img {
+
+        transform: scale(1.25);
+        transition: transform 1.5s ease;
+      }
+  }

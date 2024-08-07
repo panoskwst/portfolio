@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <!--My css always bellow bootstrap to overwite-->>
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then custom js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" ></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        
+        <!--<script src="js/panoskwst.js"></script>-->
+        
+
+        <title>Panagiotis Kostolias</title>
+        
+    </head>
+    <body data-spy="scroll" data-target=".navbar">
+        <div id="Header">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                <div class="container">
+                    <button class="navbar-togler" data-togle="collapse"data-targer="#Navbar">
+                        <spam class="navbar-togler-icon"></spam>
+                    </button>
+                    <a href="#" class="navbar-brand"><h3>Panos Kostolias</h3></a>
+                    <div class="collapse navbar-collapse" id="Navbar">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a href="#About" class="nav-link">About Me</a></li>
+                            <li class="nav-item"><a href="#Projects" class="nav-link">Projects</a></li>
+                            <li class="nav-item"><a href="#Contact" class="nav-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div><!-- /Header-->
+
+        <!-- Main Section-->
+        <section id="intro">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>
+                            <span class="text-black">Hi, I am Panos</span>
+                            <p class="text-primary">
+                                <span id="skills"></span>
+                                <span id="cursor">|</span>
+                            </p>
+                            
+                        </h1>
+                        <p>
+                            I am a passionate Full Stack / Backend Developer, with experience in implementation of wireframes and Figma/Adobe XD designs to high performance templates.
+                            Currently i work as Fullstack Developer at  IQ LIFE, with main tasks the development and maintenance of websites,
+                            the creation of promo pages (CodePen) for marketing campaigns and the analysis and optimization of website performance
+                        </p>
+
+                        <div class="social-buttons d-flex justify-content-start">
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/panos.kwstolias/" class="mr-3 mt-5">
+                                <img alt="facebook" src="images/social/facebook.png">
+                            </a>
+                            <!-- Linkedin -->
+                            <a href="https://www.linkedin.com/in/panagiotis-kostolias/" class="mr-3 mt-5">
+                                <img alt="Linkedin" src="images/social/linkedin.png">
+                            </a>
+                            <!-- Github -->
+                            <a href="https://github.com/panoskwst" class="mr-3 mt-5">
+                                <img alt="Github" src="images/social/github.png">
+                            </a>
+                            <!-- Codepen -->
+                            <a href="https://codepen.io/panos-k/" class="mr-3 mt-5">
+                                <img alt="CodePen" src="images/social/codepen.png">
+                            </a>
+                            <!-- Email -->
+                            <a href="mailto:panoskwstolias@gmail.com" class="mr-3 mt-5">
+                                <img alt="G-mail" src="images/social/gmail.png">
+                            </a>
+                            <!-- Viber -->
+                            <a href="viber://keypad?number=<306983275318>" class="mr-3 mt-5">
+                                <img alt="Viber" src="images/social/viber.png">
+                            </a>
+                            <!-- Whats app -->
+                            <a href="https://www.facebook.com/panos.kwstolias/" class="mr-3 mt-5">
+                                <img alt="Whatsapp" src="images/social/whatsapp.png">
+                            </a>
+                        </div>
+
+                        <a href="resume/Panagiotis_Kostolias_CSV.pdf" class="btn btn-primary mt-5 btn-lg" role="button" aria-pressed="true">Resume</a>
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+
+            </div>
+            <script>
+                gsap.registerPlugin(TextPlugin);
+
+                const texts = ["Web Developer", "Full Stack Developer", "Backend Specialist"];
+
+                // Cursor animation
+                gsap.to('#cursor', {
+                
+                    opacity: 0,
+                    duration: 1,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power2.inOut"
+                
+                });
+
+                let tlMaster = gsap.timeline({repeat: -1})
+
+                texts.forEach((text) => {
+                    
+                    let tlText = gsap.timeline({ repeat: 1, yoyo:true, repeatDelay:1 });
+                    tlText.to('#skills', {duration: 1, text: text});
+                    tlMaster.add(tlText);
+                });
+
+            </script>
+        </section><!-- /Intro -->
+
+        <section id="About">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center">
+                        <div class="profile-pic">
+                            <picture>
+                                <source media="(max-width: 767px)" srcset="images/pk-profile-mob.webp">
+                                <source media="(min-width: 768px)" srcset="images/pk-profile-desk.webp">
+                                <img src="images/pk-profile-mob.webp" alt="My photo... It seems i didn't load eh crap happens..." title="Panagiotis Kostolias" loading="lazy" class="profile-pic img-fluid">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="content">
+                            <h3 class="title">About Me</h4>
+                            <p>I'm Panagiotis, I'm a backend developer, web developer and amature designer. I've been building websites and systems for the past 2 years now.</p>
+                            <p>I Love TypeScript at the moment, JavaScript plus strict typing is amazing for both frontend and backend development. Making a versitile language that can easily be used across the entire system.</p>
+                            <h4 class="title">What I'm good at</h3>
+                            <ul>
+                                <li>Bringing products to live</li>
+                                <li>Quirky designs</li>
+                                <li>Backend solutions</li>
+                                <li>Automation</li>
+                                <li>Putting personality into services</li>
+                                <li>PWAs (progressive web apps)</li>
+                                <li>Complete solutions, front to back</li>
+                                <li>Integrations</li>
+                                <li>Internet Of Things</li>
+                                <li>Public Speaking</li>
+                                
+                            </ul>
+                        </div>
+                        <div id="tools" class="container mt-5">
+                            <h4 class="title text-center mt-5"> Technologies and Tools</h4>
+                            <div class="row mt-5">
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/tools/php.webp" alt="PHP" title="PHP Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">PHP</h5>
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/tools/html-5.webp" alt="html-5" title="HTML" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">HTML</h5>                                
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/tools/css-3.webp" alt="Css" title="Css" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">CSS</h5>                           
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/" alt="C# Language" title="C# Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">C# Language</h5>                          
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/" alt="C# Language" title="C# Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">C# Language</h5>                 
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/" alt="C# Language" title="C# Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">C# Language</h5>  
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/" alt="C# Language" title="C# Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">C# Language</h5>
+                                </div>
+                                <div class="col-md-2 col-6 d-flex align-items-center bg-gray-50">
+                                    <img src="images/" alt="C# Language" title="C# Language" loading="lazy" class="img-fluid">
+                                    <h5 class="ml-2">C# Language</h5> 
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        
+                    </div><!-- End Content Col-->
+                    
+                </div>
+                   
+            </div>
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.from('.profile-pic', {
+                    scrollTrigger: {
+                    trigger: "#About",
+                    start: "center bottom",
+                    end: "bottom bottom",
+                    //scrub: 10,
+                },
+                x:-100,
+                duration: 1
+                });
+            </script>
+        </section><!-- /About -->
+        
+        
+        <!--Footer-->
+        <div class="container-fluid bg-dark ">
+            <div class="row">
+                <div class="col">
+                    <div class="container">
+                        
+                        <p class="text-white pt-3 text-center">COPYRIGHT © 2024 PANAGIOTIS KOSTOLIAS</p>
+                    </div>
+                </div>
+            </div>
+        </div><!--/Footer-->
+    </body>
+</html>
+
