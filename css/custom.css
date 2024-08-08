@@ -3,6 +3,10 @@ header {
     height: 70px;
 }
 
+h5 {
+  font-size: 16px;
+}
+
 #intro {
     margin-top: 70px;
     min-height: 100vh;
@@ -14,37 +18,60 @@ header {
 }
 
 #cursor {
-    margin: 0;
-    display: inline-block;
-  
-  }
+  margin: 0;
+  display: inline-block;
 
-  #intro .social-buttons img {
-    width: 40px;
-    height: 40px;
-    transition: transform 1.5s ease;
-  }
-
-  #tools img {
-    width:48px;
-    height:48px;
-  }
-
-  .bg-gray-50 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-    margin: 1rem;
-    height: 60px;
 }
 
+#intro .social-buttons img {
+  width: 48px;
+  height: 48px;
+  transition: transform 1.5s ease;
+}
 
+#tools img {
+  width:48px;
+  height:48px;
+}
+
+.bg-gray-50 {
+  background-color: rgb(249 250 251 / 1);
+  margin: 0.5rem;
+  height: 60px;
+  min-width: 23%;
+  cursor: pointer;
+}
+#Projects span {
+   padding: 10px 20px 10px 20px;
+}
+#Projects hr {
+  border-width:2px;
+  margin-top:06px;
+}
+#Projects .card { 
+  border-radius: 2rem;
+  min-height: 605px;
+}
+
+#Contact .col {
+
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient(135deg, #83b3db 0px, #83b3db 30px, transparent 30px, transparent 50px, #83b3db 50px, #84ADCB 80px, transparent 80px, transparent 100px);
+  padding: 20px !important;
+  border: none !important;
+  border-radius: 0px;
+
+}
   /* hover */
 
   @media (hover:hover) {
     
-    #intro .social-buttons img {
+    #intro .social-buttons img:hover {
 
-        transform: scale(1.25);
-        transition: transform 1.5s ease;
-      }
+      transform: scale(1.25);
+      transition: transform 1.5s ease;
+    }
+
   }
