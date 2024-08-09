@@ -366,52 +366,127 @@
                     <div class="col">
                         <div class="card bg-white">
                             <div class="form-group mt-3">
+
+                                <div class="sender">
+                                    <p id="S_name"> </p>
+                                    <p id="S_email"></p>
+                                </div>
+                                <div class="recipient">panoskwstolias@gmail.com</div>
+                                <div class="seal">
+                                    <img src="images/web-postage-stamp-template-150.webp" alt="don't mind me i am just a postage stamp" title="postage stamp" loading="lazy" class="img-fluid">
+                                </div>
                                 
                                 <div id="error"class="text-danger"></div><!--error message-->
    
                                 <form id="form" action="https://formspree.io/f/myynprlv" method="POST">
-                                    <div class="text-center ml-5 mt-5">
-                                        <label for="name">Your name</label>
-                                        <input id="first_name" name="first-name" type="text" placeholder="Your First Name">
-                                        <label for="surname">Your Last Name</label>
-                                        <input id="sur_name" name="sur-name" type="text" placeholder="Your Last Name">
+                                    <div class="text-center ml-lg-5 mt-5">
+                                            <label for="name"><span>*</span> Name:</label>
+                                            <input id="first_name" name="first-name" type="text" placeholder="Your First Name">
+                                            <label for="surname">Last Name:</label>
+                                            <input id="sur_name" name="sur-name" type="text" placeholder="Your Last Name">
                                     </div>
-                                    <div class="text-center ml-5 mt-5">
-                                        <label for="email"> Your email:</label><br>
+                                    <div class="text-center ml-lg-5 mt-5">
+                                        <label for="email"><span>*</span> Email:</label><br>
                                         <input id="email" name="email" type="email" placeholder="example@..."size="50">
    
                                     </div>
-                                    <div class="text-center ml-5 mt-5">
-                                        <label for="message"> Your message:</label><br>
+                                    <div class="text-center ml-lg-5 mt-5">
+                                        <label for="message"><span>*</span> Message:</label><br>
                                         <textarea id="message" name="message" placeholder="type your message" rows="10" cols="50"></textarea>
    
                                     </div class="text-center">
                                     <div class="button mt-3 text-center ">
-                                        <button type="submit">Send</button>
+                                        <button class="text-white" type="submit">Send</button>
                                     </div>
                                     <script>
                                        const email = document.getElementById('email');
                                        const message = document.getElementById('message');
                                        const form = document.getElementById('form');
                                        const errorElement = document.getElementById('error');
+                                       const name = document.getElementById('first_name');
+                                       const sur_name = document.getElementById('sur_name');
+                                       const s_name = document.getElementById('S_name');
+                                       const s_email = document.getElementById('S_email');
+                                       const nameLabelSpan = document.querySelector('label[for="name"] span');
+                                       const emailLabelSpan = document.querySelector('label[for="email"] span');
+                                       const messageLabelSpan = document.querySelector('label[for="message"] span');
+
+                                       //contact animation timeline
+
+                                       let tlCont  = gsap.timeline({
+                                            paused:true,
+                                            onComplete: function() {
+                                                form.submit();
+                                            }
+                                        });
+
+                                        tlCont.to('#form',{
+                                            opacity: 0,
+                                            duration: 1,
+
+                                        })
+                                        .to('.sender',{
+                                            opacity: 1,
+                                            duration:1
+                                        }, 1)
+                                        .to('.recipient',{
+                                            opacity: 1,
+                                            duration:1
+                                        }, 1)
+                                        .to('.seal',{
+                                            opacity: 1,
+                                            duration:1
+                                        }, 1)
+                                        .to('.col',{
+                                            scale: 0.3,
+                                            duration: 1
+                                        })
+                                        .to('.col',{
+                                            y: -600,
+                                            opacity: 0,
+                                            duration: 2.5,
+                                            //ease: Power4.easeIn,
+                                            ease: "bounce.in",
+                                        }, 2)
+                                        
+
                                        
                                        form.addEventListener('submit', (e) => {
+                                           e.preventDefault();
+                                           errorElement.innerText = null;
                                            let messages = [] //dimiourgia pinaka messages giati  ta error mporei na einai >1
-       
+                                           s_name.textContent = `${name.value} ${sur_name.value}`;
+                                           s_email.textContent = email.value;
+
+                                           messageLabelSpan.classList.remove("required");
+                                           emailLabelSpan.classList.remove("required");
+                                           nameLabelSpan.classList.remove("required");
+
+
+                                           if (name.value === '' || name.value == null)//eksetazei an einai keni h tesi toy email
+                                           {
+                                               messages.push('Please enter a name so i know how to call you')//deinei timi sto messages
+                                               nameLabelSpan.classList.add("required");
+                                           }          
                                            if (email.value === '' || email.value == null)//eksetazei an einai keni h tesi toy email
                                            {
                                                messages.push('Email is required')//deinei timi sto messages
+                                               emailLabelSpan.classList.add("required");
                                            }           
                                            if (message.value === '' || message == null)
                                            {
-                                               messages.push('please write something')
+                                               messages.push('Please write me something')
+                                               messageLabelSpan.classList.add("required");
                                            }
                                            if (messages.length > 0) {//eksetazei an yparxei esto kai ena error message an yparxei akyronei to defult toy submit
-                                               e.preventDefault()
-                                               errorElement.innerText = messages.join(',')//emfanizei ta errors
-                                           } else {
-                                                //triger the animation
-                                           }    
+                                               //e.preventDefault()
+                                               errorElement.innerText = messages.join('.\n')//emfanizei ta errors
+                                           }else {
+                                                tlCont.play();
+                                                //e.preventDefault();
+                                            }
+                                            
+                                               
                                        });
                                     </script>
                                 </form>
@@ -429,7 +504,7 @@
                 <div class="col">
                     <div class="container">
                         
-                        <p class="text-white pt-3 text-center">COPYRIGHT © 2024 PANAGIOTIS KOSTOLIAS</p>
+                        <p class="text-white pt-3 text-center">Made with ☕ by PANAGIOTIS KOSTOLIAS</p>
                     </div>
                 </div>
             </div>
