@@ -11,7 +11,86 @@ h5 {
     margin-top: 70px;
     min-height: 100vh;
 }
-
+#terminal {
+  background: #0a1704;
+  border-radius: 1em;
+  box-shadow: 0 .5em 1em 1em rgba(0,0,0,.5);
+  font-family: monaco,Consolas,Lucida Console,monospace;
+  width: 40vw;
+  max-width: 40vw;
+}
+#terminal .terminal-header-buttons {
+  display: flex;
+  flex-direction: row;
+  padding: .5em 1em;
+}
+#terminal .terminal-body {
+  padding: 1em;
+  color: #0d339d;
+  height: 50vh;
+  min-height: 30em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+#terminal .terminal-control {
+  color: #0d339d;
+}
+#terminal .terminal-tmux-bar {
+  background: #3d65d3;
+  border-radius: 0 0 1em 1em;
+  display: flex;
+  flex-direction: row;
+  color: #0d339d;
+  font-size: .8em;
+}
+#terminal .terminal-control .terminal-input {
+  color: #f45bee;
+}
+#terminal .terminal-control .terminal-input .field .input {
+  background: transparent;
+  border: none;
+  padding-top: 0;
+  padding-left: 1em;
+  font-family: monaco,Consolas,Lucida Console,monospace;
+  color: #0d339d;
+  box-shadow: inset 0 .0625em .125em rgba(10,10,10,.05);
+  max-width: 100%;
+  width: 100%;
+  caret-color: transparent;
+}
+#terminal .terminal-control .terminal-input .field .cursor {
+  display: none;
+  background: #0d339d;
+  width: .5em;
+  height: 1.2em;
+  animation: flash 1s infinite;
+  position: absolute;
+  top: .25em;
+  left: 1em;
+}
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  position: relative;
+  text-align: inherit;
+}
+#terminal .terminal-control .terminal-input .field .input:active, #terminal .terminal-control .terminal-input .field .input:focus, #terminal .terminal-control .terminal-input .field .input:hover {
+  outline: none;
+  box-shadow: none;
+}
+#terminal .terminal-control .terminal-input .field .cursor {
+  display: none;
+  background: #0d339d;
+  width: .5em;
+  height: 1.2em;
+  animation: flash 1s infinite;
+  position: absolute;
+  top: .25em;
+  left: 1em;
+}
 #About {
     background-color: #ccc;
     min-height: 100vh;
@@ -136,4 +215,25 @@ input#email {
     #Contact .seal img {
       max-width: 100px;
     }
+  }
+
+  /* keyframes */
+
+  @keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    59% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    81% {
+    opacity: 1;
+    }
+
   }

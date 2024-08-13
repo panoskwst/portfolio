@@ -98,12 +98,122 @@
                         <a href="resume/Panagiotis_Kostolias_CSV.pdf" class="btn btn-primary mt-5 btn-lg" role="button" aria-pressed="true">Resume</a>
                     </div>
                     <div class="col-md-6">
+                        <div id="terminal">
+                            <div class="terminal-header-buttons">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimise"></div>
+                                <div class="terminal-button expand"></div>
+
+                            </div>
+                            <div class="terminal-body">
+                                <div><p class="has-text-weight-bold">Hello! I'm Kostolias</p><br>
+                                <p>Here's some facts about me:</p>
+                                <ul>
+                                    <li class="is-rainbow-red">✅ Web Developer</li>
+                                    <li class="is-rainbow-orange">✅ App Developer</li>
+                                    <li class="is-rainbow-yellow">✅ TypeScript Expert</li>
+                                    <li class="is-rainbow-green">✅ Backend Specialist</li>
+                                    <li class="is-rainbow-blue">✅ EPOS Builder</li>
+                                    <li class="is-rainbow-violet">✅ Football Fanatic ⚽ (forza Biancazzurri!)<!-- --> </li>
+                                </ul><br>
+                            </div>
+                            <div class="response">
+                                <p class="text-info">Type "commands" into the terminal window and hit enter to see all commands</p>
+                            </div><br>
+                            <div class="terminal-control">
+                                <form class="terminal-input">
+                                    <div class="field">
+                                        <label class="label">~</label>
+                                        <div class="control has-icons-left">
+                                            <span class="icon is-left">❯</span>
+                                            <input class="input " name="" autocorrect="off" autocapitalize="none" autocomplete="off" autofocus="" value=""><span class="cursor" style="left:15px"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <nav class="terminal-tmux-bar">
+                            <div class="screen">0</div>
+                            <div class="bar">zsh</div>
+                            <div class="battery">☕ 100%</div>
+                            <div class="name">Panos's Laptop</div>
+                        </nav>
+
+                        </div>
                         
                     </div>
                 </div>
 
             </div>
             <script>
+                // terminal code
+                function handleCommand(command) {
+                    // Convert the command to lowercase to make it case-insensitive
+                    const cmd = command.toLowerCase();
+
+                    // Handle different commands
+                    switch (cmd) {
+                        case 'rotate':
+                            document.body.style.animation = 'rotate 2s infinite linear';
+                            break;
+                        case 'red':
+                            document.body.style.backgroundColor = 'red';
+                            break;
+                        case 'codepen':
+                            response = `<p>You will be redirct to my codepen page</p>`;
+                            window.location.href = 'https://codepen.io/panos-k';
+                            break;
+                        case 'github':
+                            response = `<p>You will be redirct to my git hub page</p>`;
+                            window.location.href = 'https://github.com/panoskwst';
+                            break;
+                        case 'help':
+                            response = `
+                                <p>Available commands:</p>
+                                <ul>
+                                    <li><code>rotate</code>: Rotate the page</li>
+                                    <li><code>Dark</code>: Change to Dark mode</li>
+                                    <li><code>codepen</code>: Redirect to my codepen page</li>
+                                    <li><code>github</code>: Redirect to my github page</li>
+                                    <li><code>help</code>: List available commands</li>
+                                </ul>`;
+                    break;
+                        default:
+                            response = `<p>Unknown command: ${command}</p>`;
+                    }
+
+                    displayResponse(response);
+                }
+
+                    // Function to display the response in the terminal
+                    function displayResponse(response) {
+                        const terminalBody = document.querySelector('.response');
+                        const responseDiv = document.createElement('div');
+                        responseDiv.innerHTML = response;
+                        terminalBody.appendChild(responseDiv);
+                    }
+
+                //take the forms input
+                document.querySelector('.terminal-input').addEventListener('submit', function (event) {
+                    // Prevent the default form submission
+                    event.preventDefault();
+
+                    // Get the input value
+                    const inputField = event.target.querySelector('input');
+                    const inputValue = inputField.value.trim();
+
+                    // Clear the input field
+                    inputField.value = '';
+
+                    // Handle the command
+                    handleCommand(inputValue);
+                });
+
+
+
+
+
+                /* gsap animations */
                 gsap.registerPlugin(TextPlugin);
 
                 const texts = ["Web Developer", "Full Stack Developer", "Backend Specialist"];
