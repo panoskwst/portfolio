@@ -100,7 +100,7 @@
                     <div class="col-md-6">
                         <div id="terminal">
                             <div class="terminal-header-buttons">
-                                <div class="terminal-button close"></div>
+                                <div class="terminal-button exit"></div>
                                 <div class="terminal-button minimise"></div>
                                 <div class="terminal-button expand"></div>
 
@@ -156,8 +156,9 @@
                         case 'rotate':
                             document.body.style.animation = 'rotate 2s infinite linear';
                             break;
-                        case 'red':
-                            document.body.style.backgroundColor = 'red';
+                        case 'dark':
+                            response = `<p>You changed to the dark mode</p>`
+                            document.body.classList.toggle('dark-mode');
                             break;
                         case 'codepen':
                             response = `<p>You will be redirct to my codepen page</p>`;
