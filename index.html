@@ -27,7 +27,7 @@
     </head>
     <body data-spy="scroll" data-target=".navbar">
         <div id="Header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-footer fixed-top">
                 <div class="container">
                     <button class="navbar-togler" data-togle="collapse"data-targer="#Navbar">
                         <spam class="navbar-togler-icon"></spam>
@@ -47,7 +47,7 @@
         <!-- Main Section-->
         <section id="intro">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
                         <h1>
                             <span class="text-black">Hi, I am Panos</span>
@@ -118,7 +118,7 @@
                                 </ul><br>
                             </div>
                             <div class="response">
-                                <p class="text-info">Type "commands" into the terminal window and hit enter to see all commands</p>
+                                <p class="text-info">Type "help" into the terminal window and hit enter to see all commands</p>
                             </div><br>
                             <div class="terminal-control">
                                 <form class="terminal-input">
@@ -156,9 +156,27 @@
                         case 'rotate':
                             document.body.style.animation = 'rotate 2s infinite linear';
                             break;
+                        case 'credits':
+                            response = `<p>Terminal's design and idea are based in Ashleigh implementation you can check her portfolio here: <a href="https://ashleighsimonelli.co.uk/">Ashleigh</a></p>`
+                            break; 
                         case 'dark':
-                            response = `<p>You changed to the dark mode</p>`
-                            document.body.classList.toggle('dark-mode');
+                            if (document.body.classList.contains('dark-mode')) {
+                                response = `<p>Dark mode is already active.</p>`;
+                            } else {
+                                document.body.classList.add('dark-mode');
+                                localStorage.setItem('dark-mode', 'true'); // Save preference
+                                response = `<p>You changed to the dark mode</p>`;
+                            }
+                            break;
+                        case 'light':
+                            // Switch back to light mode if dark mode is active
+                            if (document.body.classList.contains('dark-mode')) {
+                                document.body.classList.remove('dark-mode');
+                                localStorage.setItem('dark-mode', 'false'); // Save preference
+                                response = `<p>You changed to the light mode</p>`;
+                            } else {
+                                response = `<p>Light mode is already active.</p>`;
+                            }
                             break;
                         case 'codepen':
                             response = `<p>You will be redirct to my codepen page</p>`;
@@ -172,8 +190,10 @@
                             response = `
                                 <p>Available commands:</p>
                                 <ul>
+                                    <li><code>credits</code>: see who gave me the idea for the terminal</li>
                                     <li><code>rotate</code>: Rotate the page</li>
                                     <li><code>Dark</code>: Change to Dark mode</li>
+                                    <li><code>Light</code>: Change to Light mode</li>
                                     <li><code>codepen</code>: Redirect to my codepen page</li>
                                     <li><code>github</code>: Redirect to my github page</li>
                                     <li><code>help</code>: List available commands</li>
@@ -208,6 +228,14 @@
 
                     // Handle the command
                     handleCommand(inputValue);
+                });
+
+                // Check localStorage for dark mode preference on page load
+                document.addEventListener('DOMContentLoaded', () => {
+                    const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+                    if (isDarkMode) {
+                        document.body.classList.add('dark-mode');
+                    }
                 });
 
 

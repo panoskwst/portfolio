@@ -1,6 +1,11 @@
 :root {
   /* Light Mode Colors */
+  --background-color-page: #E3F2FD;
   --background-color-intro: #F5F5F5;
+  --background-color-footer:#5BC4BC;
+  --background-color-about: #E3F2FD;
+  --background-color-projects: #E3F2FD;
+  --background-color-contact: #E3F2FD;
   --text-color: #333333;
   --accent-color: #00BFA5;
   --secondary-color: #E3F2FD;
@@ -9,16 +14,33 @@
 
 .dark-mode {
   /* Dark Mode Colors */
+  --background-color-page: #121212;
   --background-color-intro: #121212;
+  --background-color-footer:#121212;
+  --background-color-about: #121212;
+  --background-color-projects: #121212;
+  --background-color-contact: #121212;
   --text-color: #E0E0E0;
   --accent-color: #00BFA5;
   --secondary-color: #1E1E1E;
   --border-color: #444444;
 }
+body {
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--background-color-page);
+  color: var(--text-color);
+}
 
 header {
-    width: 100%;
-    height: 70px;
+  width: 100%;
+  height: 70px;
+}
+
+.bg-footer {
+  background-color:var(--background-color-footer);
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,1);
 }
 
 h5 {
@@ -29,7 +51,7 @@ h5 {
   margin-top: 70px;
   min-height: 100vh;
   background-color: var(--background-color-intro);
-  color: #333333;
+  color: var(--text-color);
 }
 #terminal {
   background: #0a1704;
@@ -142,7 +164,7 @@ h5 {
   left: 1em;
 }
 #About {
-    background-color: #E3F2FD;
+    background-color: var(--background-color-about);
     min-height: 100vh;
 }
 
@@ -170,6 +192,9 @@ h5 {
   min-width: 23%;
   cursor: pointer;
 }
+#Projects {
+  background-color: var(--background-color-projects);
+}
 #Projects span {
    padding: 10px 20px 10px 20px;
 }
@@ -180,6 +205,12 @@ h5 {
 #Projects .card { 
   border-radius: 2rem;
   min-height: 605px;
+  color: #121212;
+}
+
+#Contact {
+  background-color: var(--background-color-contact);
+  color:#121212;
 }
 
 #Contact .col {
