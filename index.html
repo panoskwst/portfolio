@@ -124,7 +124,7 @@
                                 <form class="terminal-input">
                                     <div class="field">
                                         <label class="label">~</label>
-                                        <div class="control has-icons-left">
+                                        <div class="control  d-flex align-items-center has-icons-left">
                                             <span class="icon is-left">❯</span>
                                             <input class="input " name="" autocorrect="off" autocapitalize="none" autocomplete="off" autofocus="" value=""><span class="cursor" style="left:15px"></span>
                                         </div>
@@ -146,11 +146,12 @@
 
             </div>
             <script>
+                const cursor = document.querySelector('.cursor');
                 // terminal code
                 function handleCommand(command) {
                     // Convert the command to lowercase to make it case-insensitive
                     const cmd = command.toLowerCase();
-
+                    
                     // Handle different commands
                     switch (cmd) {
                         case 'barrel roll':
@@ -215,29 +216,29 @@
                             response = `<p>Enter a background color for the first Section:</p>`;
                             break;
                         default:
-                            if (customizationStep === 1) {
+                            if (typeof customizationStep === 'undefined') {
+                                response = `<p>Unknown command: ${command}</p>`;
+                            } else if (customizationStep === 1) {
                                 section1Color = cmd;
                                 customizationStep = 2;
                                 response = `<p>Now, enter a background color for the About Section:</p>`;
                             } else if (customizationStep === 2) {
                                 section2Color = cmd;
                                 customizationStep = 3;
-                                response = `<p>Now, enter a background color for the Projects Section:<</p>`;
+                                response = `<p>Now, enter a background color for the Projects Section:</p>`;
                             }  else if (customizationStep === 3) {
                                 section3Color = cmd;
                                 customizationStep = 4;
-                                response = `<p>Finaly, enter a background color for the Contact Section:<</p>`;
+                                response = `<p>Finaly, enter a background color for the Contact Section:</p>`;
                             } else if (customizationStep === 4) {
                                 section4Color = cmd;
                                 customizationStep = 0;
                                 applyCustomizations(section1Color, section2Color, section3Color, section4Color);
                                 response = `<p>Customizations applied!</p>`;
-                            } else {
-                                response = `<p>Unknown command: ${command}</p>`;
                             }
 
                         }
-
+                    cursor.style.left = '20px';
                     displayResponse(response);
                 }
 
@@ -326,10 +327,26 @@
                     tlMaster.add(tlText);
                 });
 
-                // rotate animation
-                let tlRotate = gsap.timeline({paused:true});
+                document.addEventListener('DOMContentLoaded', function() {
+                    const input = document.querySelector('.control input');
+                    
 
-               // tlRotate
+                    input.addEventListener('input', function() {
+                        const inputLength = input.value.length;
+                        const newPosition = 20 + (inputLength * 10); // 20px initial + 10px per character
+                        cursor.style.left = `${newPosition}px`;
+                    });
+
+                    // Adjust cursor visibility on focus and blur
+                    input.addEventListener('focus', function() {
+                        cursor.style.display = 'block';
+                    });
+
+                    input.addEventListener('blur', function() {
+                        cursor.style.display = 'none';
+                    });
+
+                });
 
             </script>
         </section><!-- /Intro -->

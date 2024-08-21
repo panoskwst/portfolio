@@ -170,7 +170,23 @@ h5 {
   outline: none;
   box-shadow: none;
 }
-
+#terminal .terminal-tmux-bar .screen {
+  border-bottom-left-radius: 1em;
+  padding-left: 1em;
+  background: #f45bee;
+}
+#terminal .terminal-tmux-bar .bar, #terminal .terminal-tmux-bar .battery, #terminal .terminal-tmux-bar .name, #terminal .terminal-tmux-bar .screen {
+  padding: .5em;
+}
+#terminal .terminal-tmux-bar .bar {
+  flex-grow: 10;
+}
+#terminal .terminal-tmux-bar .battery {
+  background: #0a1704;
+}
+#terminal .terminal-tmux-bar .name, #terminal .terminal-tmux-bar .screen {
+  background: #f45bee;
+}
 #about {
     background-color: var(--background-color-about);
     min-height: 100vh;
