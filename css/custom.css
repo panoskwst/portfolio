@@ -1,5 +1,6 @@
 :root {
   /* Light Mode Colors */
+  --header: 70px;
   --background-color-page: #E3F2FD;
   --background-color-intro: #F5F5F5;
   --background-color-footer:#5BC4BC;
@@ -31,9 +32,25 @@ body {
   color: var(--text-color);
 }
 
-header {
+#header {
   width: 100%;
-  height: 70px;
+  height: 70px; /*var(--header);*/
+}
+
+.cyan {
+  color: #00FFFF;
+}
+.magenta {
+  color: #FF00FF;
+}
+.lime-green {
+  color:#00FF00;
+}
+.yellow {
+  color:#FFFF00;
+}
+.orange {
+  color:#FFA500;
 }
 
 .bg-footer {
@@ -48,7 +65,7 @@ h5 {
 }
 
 #intro {
-  margin-top: 70px;
+  padding-top: 70px;
   min-height: 100vh;
   background-color: var(--background-color-intro);
   color: var(--text-color);
@@ -153,17 +170,8 @@ h5 {
   outline: none;
   box-shadow: none;
 }
-#terminal .terminal-control .terminal-input .field .cursor {
-  display: none;
-  background: #0d339d;
-  width: .5em;
-  height: 1.2em;
-  animation: flash 1s infinite;
-  position: absolute;
-  top: .25em;
-  left: 1em;
-}
-#About {
+
+#about {
     background-color: var(--background-color-about);
     min-height: 100vh;
 }
@@ -192,28 +200,28 @@ h5 {
   min-width: 23%;
   cursor: pointer;
 }
-#Projects {
+#projects {
   background-color: var(--background-color-projects);
 }
-#Projects span {
+#projects span {
    padding: 10px 20px 10px 20px;
 }
-#Projects hr {
+#projects hr {
   border-width:2px;
   margin-top:06px;
 }
-#Projects .card { 
+#projects .card { 
   border-radius: 2rem;
   min-height: 605px;
   color: #121212;
 }
 
-#Contact {
+#contact {
   background-color: var(--background-color-contact);
   color:#121212;
 }
 
-#Contact .col {
+#contact .col {
 
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -253,7 +261,7 @@ h5 {
 }
 
 
-#Contact button {
+#contact button {
   background-color: #3d719b;
   border: 0;
   width: auto;
@@ -266,7 +274,7 @@ h5 {
 input#email {
   max-width: 70%;
 }
-#Contact textarea {
+#contact textarea {
   max-width: 70%;
 }
 .required {
@@ -300,7 +308,7 @@ input#email {
       font-weight: 800;
 
     }
-    #Contact .seal img {
+    #contact .seal img {
       max-width: 100px;
     }
   }
@@ -324,4 +332,13 @@ input#email {
     opacity: 1;
     }
 
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
