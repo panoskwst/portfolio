@@ -6,7 +6,7 @@
   --background-color-footer:#5BC4BC;
   --background-color-about: #E3F2FD;
   --background-color-projects: #E3F2FD;
-  --background-color-contact: #E3F2FD;
+  --background-color-contact: #F5F5F5;
   --text-color: #333333;
   --accent-color: #00BFA5;
   --secondary-color: #E3F2FD;
@@ -219,10 +219,10 @@ h5 {
 #projects {
   background-color: var(--background-color-projects);
 }
-#projects span {
+#projects span, #contact span {
    padding: 10px 20px 10px 20px;
 }
-#projects hr {
+hr {
   border-width:2px;
   margin-top:06px;
 }
