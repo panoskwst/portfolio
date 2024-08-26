@@ -59,6 +59,10 @@ function handleCommand(command) {
             customizationStep = 1;
             return `<p>Enter a background color for the first section:</p>`;
         },
+        'malakas': () =>{
+            window.location.href ='https://drive.google.com/file/d/1FYprHBf0MPA4s29PwIP3TEUTutgab6St/view?usp=sharing';
+            return `<p>Welcome to hell!</p>`
+        },
     };
 
     response = commands[cmd] ? commands[cmd]() : handleCustomization(cmd) || `<p>Unknown command: ${command}</p>`;
