@@ -283,16 +283,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 from: "start"
             }
         });
+
+        gsap.from('.profile-pic', {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "center bottom",
+                end: "bottom bottom",
+                toggleActions: "play none none none", 
+            },
+            x: isMobile ? 0 : -200,
+            duration: 1.5,
+            opacity:  isMobile ? 0 : 1,
+            scale:  isMobile ? 0.5 : 1, 
+            ease: "power2.inOut",
+        });
     });
 
-    gsap.from('.profile-pic', {
-        scrollTrigger: {
-            trigger: "#about",
-            start: "center bottom",
-            end: "bottom bottom",
-            toggleActions: "play none none reset", 
-        },
-        x: -200,
-        duration: 1
-    });
+
 });

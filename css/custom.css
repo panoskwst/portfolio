@@ -173,7 +173,7 @@ h5 {
 #terminal .terminal-tmux-bar .screen {
   border-bottom-left-radius: 1em;
   padding-left: 1em;
-  background: #f45bee;
+  background: #1e90ff;
 }
 #terminal .terminal-tmux-bar .bar, #terminal .terminal-tmux-bar .battery, #terminal .terminal-tmux-bar .name, #terminal .terminal-tmux-bar .screen {
   padding: .5em;
@@ -185,7 +185,7 @@ h5 {
   background: #0a1704;
 }
 #terminal .terminal-tmux-bar .name, #terminal .terminal-tmux-bar .screen {
-  background: #f45bee;
+  background: #1e90ff;
 }
 #about {
     background-color: var(--background-color-about);
