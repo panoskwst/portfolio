@@ -7,6 +7,7 @@
   --background-color-about: #E3F2FD;
   --background-color-projects: #E3F2FD;
   --background-color-contact: #F5F5F5;
+  --bg-gray-color: #f9fafb;
   --text-color: #333333;
   --accent-color: #00BFA5;
   --secondary-color: #E3F2FD;
@@ -21,6 +22,7 @@
   --background-color-about: #121212;
   --background-color-projects: #121212;
   --background-color-contact: #121212;
+  --bg-gray-color: #121212;
   --text-color: #E0E0E0;
   --accent-color: #00BFA5;
   --secondary-color: #1E1E1E;
@@ -191,7 +193,7 @@ h5 {
     background-color: var(--background-color-about);
     min-height: 100vh;
 }
-
+#about 
 #cursor {
   margin: 0;
   display: inline-block;
@@ -210,7 +212,7 @@ h5 {
 }
 
 .bg-gray-50 {
-  background-color: rgb(249 250 251 / 1);
+  background-color: var(--bg-gray-color);
   margin: 0.5rem;
   height: 60px;
   min-width: 23%;
