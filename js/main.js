@@ -7,7 +7,10 @@ function handleCommand(command) {
 
     const commands = {
         'barrel roll': () => {
-            document.querySelector('#terminal').style.animation = 'rotate 2s forwards linear';
+            const terminal = document.querySelector('#terminal');
+            terminal.style.animation = 'none';
+            terminal.offsetHeight;
+            terminal.style.animation = 'rotate 2s forwards linear';
             return `<p>weeeee</p>`;
         },
         'credits': () => `<p>Terminal's design and idea are based on Ashleigh's implementation. You can check her portfolio <a href="https://ashleighsimonelli.co.uk/">here</a>.</p>`,
@@ -82,7 +85,7 @@ function handleCustomization(cmd) {
         window[customizationColors[customizationStep]] = cmd;
         customizationStep++;
         if (customizationStep > 4) {
-            customizationStep = 0;
+            customizationStep = undefined;
             applyCustomizations(section1Color, section2Color, section3Color, section4Color);
             return `<p>Customizations applied!</p>`;
         }
